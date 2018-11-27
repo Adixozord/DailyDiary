@@ -15,6 +15,10 @@ public class Logs {
     @Column(name= "private")
     private Boolean isPrivate;
 
+    @JoinColumn(name = "user_id")
+    @OneToMany
+    User user;
+
     public Long getId() {
         return id;
     }

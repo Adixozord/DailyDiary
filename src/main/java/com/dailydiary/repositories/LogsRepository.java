@@ -9,6 +9,8 @@ public interface LogsRepository extends JpaRepository<Logs, Long> {
 
     List<Logs> findAll();
 
+    List<Logs> findAllByUser(Long id);
+
 
 
 }

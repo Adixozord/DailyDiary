@@ -1,6 +1,7 @@
 package com.dailydiary.entity;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -21,6 +22,9 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "user")
+    List<Logs> userLogs;
 
 
     public Long getId() {
