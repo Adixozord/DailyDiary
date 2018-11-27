@@ -2,7 +2,7 @@ Daily Diary project.
 
 Main assumptions:
 > possibilities for users:
-    1- creating and logging into account
+    1- creating and logging into account - check
     2    - sorting logs into default categories (for example, actual mood)
     3       - possibility of adding custom categories
     4            - creation and management of users logs (public / private)
