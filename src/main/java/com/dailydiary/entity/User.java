@@ -1,6 +1,7 @@
 package com.dailydiary.entity;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -22,6 +23,16 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @OneToMany
+    List<Logs> userLogs;
+
+    public List<Logs> getUserLogs() {
+        return userLogs;
+    }
+
+    public void setUserLogs(List<Logs> userLogs) {
+        this.userLogs = userLogs;
+    }
 
     public Long getId() {
         return id;

@@ -1,11 +1,12 @@
 package com.dailydiary.services;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import com.dailydiary.dto.UserDTO;
 import com.dailydiary.entity.User;
 import com.dailydiary.repositories.UserRepository;
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
@@ -14,29 +15,33 @@ public class LoginService {
     @Autowired
     UserRepository userRepository;
 
-    public boolean checkCredentials(String username, String password) {
+    public User login(String username, String password) {
         if (username == null || username.isEmpty()) {
-            return false;
+            return null;
         }
         if (password == null || password.isEmpty()) {
-            return false;
+            return null;
         }
-        User user = userRepository.findByUsernameAndPassword(username, password);
-        return user != null;
+        User user = userRepository.findByUsername(username);
+        if(!BCrypt.checkpw(password, user.getPassword())){
+            return null;
+        }
+        return user;
     }
 
-    public UserDTO login(String username, String password) {
-        if (username == null || username.isEmpty()) {
-            return null;
-        }
-        if (password == null || password.isEmpty()) {
-            return null;
-        }
-        User user = userRepository.findByUsernameAndPassword(username, password);
-        UserDTO userDTO = new UserDTO();
-        userDTO.setId(user.getId());
-        userDTO.setUsername(user.getUsername());
-        userDTO.setEmail(user.getEmail());
-        return userDTO;
-    }
+//    public User login(String username, String password) {
+//        if (username == null || username.isEmpty()) {
+//            return null;
+//        }
+//        if (password == null || password.isEmpty()) {
+//            return null;
+//        }
+//        User user = userRepository.findByUsername(username);
+//
+//        UserDTO userDTO = new UserDTO();
+//        userDTO.setId(user.getId());
+//        userDTO.setUsername(user.getUsername());
+//        userDTO.setEmail(user.getEmail());
+//        return userDTO;
+//    }
 }

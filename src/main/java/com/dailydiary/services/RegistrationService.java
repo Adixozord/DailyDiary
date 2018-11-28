@@ -1,5 +1,6 @@
 package com.dailydiary.services;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,7 +37,7 @@ public class RegistrationService {
         User user = new User();
         user.setUsername(form.getUsername());
         user.setEmail(form.getEmail());
-        user.setPassword(form.getPassword());
+        user.setPassword(BCrypt.hashpw(form.getPassword(), BCrypt.gensalt()));
         user.setEnabled(true);
         userRepository.save(user);
 
