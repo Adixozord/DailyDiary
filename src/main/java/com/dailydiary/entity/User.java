@@ -23,9 +23,16 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany
     List<Logs> userLogs;
 
+    public List<Logs> getUserLogs() {
+        return userLogs;
+    }
+
+    public void setUserLogs(List<Logs> userLogs) {
+        this.userLogs = userLogs;
+    }
 
     public Long getId() {
         return id;

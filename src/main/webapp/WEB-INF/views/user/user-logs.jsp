@@ -1,19 +1,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: aix
-  Date: 2018-11-27
-  Time: 15:29
+  Date: 2018-11-28
+  Time: 09:47
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>User desktop</title>
+    <title>Title</title>
 </head>
 <body>
-<h1> my logs</h1>
+<p> Personalised logs</p>
+<tbody>
 <c:forEach items="${userLogs}" var="log">
     <tr>
         <br>
@@ -21,13 +21,9 @@
         <br>
         <td>${log.content}</td>
         <br>
-        <div>
-           ${log.created}
-        </div>
+        <td><a href="/logs/${log.id}/options">options</a> </td>
     </tr>
 </c:forEach>
-<h1> stats </h1>
-
-
+</tbody>
 </body>
 </html>

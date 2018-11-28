@@ -6,11 +6,12 @@
 <head>
     <title>Daily Diary</title>
 </head>
-<body>
+<input>
 <h1> welcome to daily diary</h1>
 <c:if test="${loggedUser != null}">
-    <p>Logged in as: ${loggedUser.username}</p>
-    <p> Personalised logs gonna show here</p>
+    <p>Logged in as: ${loggedUser.username}</p><form action="${pageContext.request.contextPath}/log-out" method="get">
+    <input type="submit" value="Logout" />
+    <a href="/dd/user/${loggedUser.id}/desktop">Desktop</a><br>
     <a href="/dd/logs/new">Add new log</a>
 </c:if>
 <c:if test="${loggedUser == null}">
@@ -29,12 +30,11 @@
             <br>
             <td>${log.content}</td>
             <br>
-                <%--<td><a href="/logs/${log.id}/remove">Usuń</a> </td>--%>
-                <%--<td><a href="/logs/${log.id}/edit">Edytuj</a></td>--%>
+
         </tr>
     </c:if>
 </c:forEach>
 </tbody>
-
+</form>
 </body>
 </html>

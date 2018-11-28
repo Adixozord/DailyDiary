@@ -2,6 +2,7 @@ package com.dailydiary.controllers;
 
 import com.dailydiary.dto.UserDTO;
 import com.dailydiary.entity.Logs;
+import com.dailydiary.entity.User;
 import com.dailydiary.repositories.LogsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,17 +22,19 @@ public class HomePageController {
     LogsRepository logsRepository;
 
     @GetMapping
-        public String prepareHomePage(Model model, @SessionAttribute(value = LoginController.LOGGED_USER_KEY, required = false) UserDTO loggedUser){
+        public String prepareHomePage(Model model, @SessionAttribute(value = LoginController.LOGGED_USER_KEY, required = false) User loggedUser){
 
             if(loggedUser != null){
                 model.addAttribute("loggedUser",loggedUser);
+                List<Logs> userLogs = logsRepository.findAllByUserId(loggedUser.getId());
+                model.addAttribute("userLogs", userLogs);
             }
             List<Logs> logs = logsRepository.findAll();
             model.addAttribute("allLogs", logs);
 
+
+
             return "homepage";
         }
-
-
 
     }

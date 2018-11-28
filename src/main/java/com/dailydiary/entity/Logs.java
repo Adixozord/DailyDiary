@@ -1,6 +1,8 @@
 package com.dailydiary.entity;
 
 import javax.persistence.*;
+import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -14,10 +16,34 @@ public class Logs {
     private String category;
     @Column(name= "private")
     private Boolean isPrivate;
+    private Date created;
 
-    @JoinColumn(name = "user_id")
-    @OneToMany
+    @ManyToOne
     User user;
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public Boolean getPrivate() {
+        return isPrivate;
+    }
+
+    public void setPrivate(Boolean aPrivate) {
+        isPrivate = aPrivate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Long getId() {
         return id;
