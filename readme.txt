@@ -2,25 +2,21 @@ Daily Diary project.
 
 Main assumptions:
 > possibilities for users:
-    1- creating and logging into account - check
-    2    - sorting logs into default categories (for example, actual mood) - check
-    3       - possibility of adding custom categories - in progress
-    4            - creation and management of users logs (public / private)
-
-   5- show all logs
-   5.1 - show details of log
-   8- favourite logs folder
-   9    - following users, followed users folder
-   10 - checking users overall category diagram (how many posts of each category)
-
-
-    - each user gets experience points based on logs and activity
-    - commenting on other users public logs
+   - creating and logging into account
+   - sorting logs into default categories (for example, actual mood) 
+   - creation and management of users logs (public / private)
+   - show all logs
+   - show details of log
+   - favourite logs folder
+   - following users, followed users folder
+   - checking users overall category diagram (how many posts of each category)
+   - each user gets experience points based on logs and activity
+   - commenting on other users public logs
 > site possibilities:
-    7- random log
-    11- check most viewed(day / month / all time)
-    6- find logs which contain specific word
+   - random log
+   - check most viewed(day / month / all time)
+   - find logs which contain specific word
 > logs:
-    dp5.1- count of views
-    - comments
-    8.1- add to favourites folder
+   - count of views
+   - comments
+   - add to favourites folder
