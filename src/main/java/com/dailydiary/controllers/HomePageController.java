@@ -32,8 +32,6 @@ public class HomePageController {
             List<Logs> logs = logsRepository.findAll();
             model.addAttribute("allLogs", logs);
 
-
-
             return "homepage";
         }
 

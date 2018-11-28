@@ -1,12 +1,14 @@
 package com.dailydiary.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
-@Table(name="logs")
+@Table(name = "logs")
 public class Logs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,18 +16,25 @@ public class Logs {
 
     private String content;
     private String category;
-    @Column(name= "private")
+    @Column(name = "private")
     private Boolean isPrivate;
-    private Date created;
+    @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+    private LocalDateTime created;
 
-    @ManyToOne
-    User user;
-
-    public Date getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(Date created) {
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public Long userId() {
+        return user.getId();
+    }
+
+
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 
@@ -95,4 +104,6 @@ public class Logs {
 
     public Logs() {
     }
+
+
 }

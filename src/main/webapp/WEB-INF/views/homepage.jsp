@@ -30,7 +30,6 @@
             <br>
             <td>${log.content}</td>
             <br>
-
         </tr>
     </c:if>
 </c:forEach>

@@ -25,13 +25,13 @@ public class LoginController {
     @Autowired
     LoginService loginService;
 
-    @GetMapping("/signup")
+    @GetMapping("signup")
     public String prepareLoginForm(Model model) {
         model.addAttribute("loginFormData", new LoginFormDTO());
         return "user/signup";
     }
 
-    @PostMapping("/signup")
+    @PostMapping("signup")
     public String login(@ModelAttribute("loginFormData") @Valid LoginFormDTO form, BindingResult bindingResult, HttpSession session) {
         if (bindingResult.hasErrors()) {
             return "user/signup";

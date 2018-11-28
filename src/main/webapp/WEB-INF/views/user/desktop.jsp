@@ -27,7 +27,6 @@
     </tr>
 </c:forEach>
 <h1> stats </h1>
-
-
+<a href="/dd">homepage</a>
 </body>
 </html>
