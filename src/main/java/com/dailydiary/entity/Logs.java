@@ -18,7 +18,7 @@ public class Logs {
     private String category;
     @Column(name = "private")
     private Boolean isPrivate;
-    @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime created;
 
     public LocalDateTime getCreated() {

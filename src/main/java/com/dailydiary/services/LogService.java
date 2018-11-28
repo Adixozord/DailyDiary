@@ -22,12 +22,10 @@ public class LogService {
     LogsRepository logsRepository;
 
     public void createLog(@Valid Logs log, User user){
-//        Logs log = new Logs();
-//        log.setContent(form.getContent());
-//        log.setCategory(form.getCategory());
+
         log.setCreated(LocalDateTime.now());
         log.setUser(user);
-//        log.setIsPrivate(form.getPrivate());
+
         logsRepository.save(log);
 
     }

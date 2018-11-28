@@ -10,7 +10,6 @@ import java.time.LocalDateTime;
 
 public class LogFormDTO {
 
-    LocalDateTime now = LocalDateTime.now();
 
 
     @Id
@@ -21,8 +20,8 @@ public class LogFormDTO {
     private String category;
     @Column(name = "private")
     private Boolean isPrivate;
-    @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDateTime created = now;
+    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime created;
 
     public Long getId() {
         return id;
