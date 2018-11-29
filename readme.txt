@@ -7,11 +7,7 @@ Main assumptions:
    - creation and management of users logs (public / private)
    - show all logs
    - show details of log
-   - checking users overall category diagram (how many posts of each category)
-   - each user gets experience points based on logs and activity
-   - commenting on other users public logs
 > site possibilities:
-   - random log
-   - find logs which contain specific word
+   - find logs which contain specific word, user, date
 > logs:
    - comments
