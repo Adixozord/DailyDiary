@@ -3,7 +3,6 @@ package com.dailydiary.entity;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -18,7 +17,7 @@ public class Logs {
     private String category;
     @Column(name = "private")
     private Boolean isPrivate;
-    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd-----HH:mm:ss")
     private LocalDateTime created;
 
     public LocalDateTime getCreated() {
