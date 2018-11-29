@@ -19,13 +19,13 @@ public class RegistrationController {
     @Autowired
     RegistrationService registrationService;
 
-    @GetMapping("dd/register")
+    @GetMapping("register")
     public String register(Model model) {
 //        model.addAttribute("newUser", new User());
         model.addAttribute("registrationFormData", new RegistrationFormDTO());
         return "user/register";
     }
-    @PostMapping("dd/register")
+    @PostMapping("register")
     public String register(@ModelAttribute("registrationFormData") @Valid RegistrationFormDTO form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "user/register";
