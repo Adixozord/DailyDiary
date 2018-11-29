@@ -21,8 +21,8 @@
                     <i class="fas fa-book-alt"></i>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <form class="form-inline my-2">
-                        <input class="form-control mr-sm-2" type="search" placeholder="search"
+                    <form class="form-inline my-2" method="get" action="#">
+                        <input class="form-control mr-sm-2" type="search" name="search" placeholder="search"
                                aria-label="Search"><span><i class="fas fa-search"></i></span>
                     </form>
 
@@ -54,7 +54,7 @@
         <div class="row">
             <div class="col-md-3">
                 <c:if test="${loggedUser != null}">
-                    <span> Add new log </span>
+                    <h3> Add new log </h3>
                     <c:import url="logs/logForm.jsp"></c:import>
                 </c:if>
             </div>

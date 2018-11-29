@@ -14,6 +14,7 @@ public class Logs {
     private Long id;
 
     private String content;
+
     private String category;
     @Column(name = "private")
     private Boolean isPrivate;

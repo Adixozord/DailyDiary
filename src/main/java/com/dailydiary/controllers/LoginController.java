@@ -33,6 +33,7 @@ public class LoginController {
 
     @PostMapping("signup")
     public String login(@ModelAttribute("loginFormData") @Valid LoginFormDTO form, BindingResult bindingResult, HttpSession session) {
+        // if there are errors while filling the form
         if (bindingResult.hasErrors()) {
             return "user/signup";
         }
@@ -42,10 +43,12 @@ public class LoginController {
             return "user/signup";
         }
 
+        // correct login
         session.setAttribute(LOGGED_USER_KEY, validCredentials);
         return "redirect:/dd";
     }
 
+    // logout logic
     @GetMapping("logout")
     public String logout(HttpSession session){
         session.setAttribute(LOGGED_USER_KEY, null);

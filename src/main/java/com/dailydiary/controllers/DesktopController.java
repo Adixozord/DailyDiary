@@ -22,6 +22,10 @@ public class DesktopController {
     @Autowired
     LogsRepository logsRepository;
 
+    /*
+    * building user desktop
+    */
+
     @GetMapping("/{id}/desktop")
     public String logsOptions(@PathVariable Long id, Model model) {
         List<Logs> log = logsRepository.findAllByUserId(id);

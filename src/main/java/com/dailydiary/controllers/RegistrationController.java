@@ -16,6 +16,7 @@ import javax.validation.Valid;
 @RequestMapping(value = "/", produces = "text/html;charset=UTF-8")
 public class RegistrationController {
 
+
     @Autowired
     RegistrationService registrationService;
 
@@ -37,13 +38,13 @@ public class RegistrationController {
         boolean isLoginUnique = registrationService.checkUsername(form.getUsername());
 
         if (!isLoginUnique){
-            bindingResult.rejectValue("username","","Login used");
+            bindingResult.rejectValue("username","","login used");
             return "user/register";
         }
         boolean isEmailUnique = registrationService.checkEmail(form.getEmail());
 
         if (!isEmailUnique){
-            bindingResult.rejectValue("email","","Email used");
+            bindingResult.rejectValue("email","","email used");
             return "user/register";
         }
 

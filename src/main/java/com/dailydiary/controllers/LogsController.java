@@ -51,9 +51,7 @@ public class LogsController {
             return "redirect:/dd";
 
         } else {
-            //odsluga niezalogoanego
             return "logs/new-log";
-
         }
     }
 
