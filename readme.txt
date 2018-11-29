@@ -12,7 +12,6 @@ Main assumptions:
    - commenting on other users public logs
 > site possibilities:
    - random log
-   - check most viewed(day / month / all time)
    - find logs which contain specific word
 > logs:
    - comments
