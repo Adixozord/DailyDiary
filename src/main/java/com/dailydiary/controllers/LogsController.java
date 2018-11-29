@@ -40,7 +40,7 @@ public class LogsController {
     @GetMapping("/new")
     public String getNewLogForm(Model model) {
         model.addAttribute("newLog", new Logs());
-        return "logs/new-log";
+        return "redirect:/";
     }
 
     @PostMapping("/new")
@@ -48,7 +48,7 @@ public class LogsController {
         User user = (User) session.getAttribute("logged-user");
         if (user != null) {
             logService.createLog(log, user);
-            return "logs/log-posted";
+            return "redirect:/dd";
 
         } else {
             //odsluga niezalogoanego
