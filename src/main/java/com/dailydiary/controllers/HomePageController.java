@@ -8,7 +8,6 @@ import com.dailydiary.repositories.LogsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -41,18 +40,18 @@ public class HomePageController {
             model.addAttribute("userLogs", userLogs);
 
         }
-            List<Logs> logs = logsRepository.findAllByOrderByCreatedDesc();
-            model.addAttribute("allLogs", logs);
+        List<Logs> logs = logsRepository.findAllByOrderByCreatedDesc();
+        model.addAttribute("allLogs", logs);
 
-            return "homepage";
-        }
+        return "homepage";
+    }
+
     @ModelAttribute("category")
     public List<Category> categories() {
         return categoryRepository.findAll();
 
-        }
-
-
-
     }
+
+
+}
 

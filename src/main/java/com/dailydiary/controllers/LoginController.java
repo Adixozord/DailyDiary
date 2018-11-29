@@ -46,7 +46,7 @@ public class LoginController {
         return "redirect:/dd";
     }
 
-    @GetMapping("/log-out")
+    @GetMapping("logout")
     public String logout(HttpSession session){
         session.setAttribute(LOGGED_USER_KEY, null);
         return "redirect:/dd";

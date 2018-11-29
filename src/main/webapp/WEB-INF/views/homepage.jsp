@@ -41,14 +41,10 @@
                     </div>
                 </c:if>
                 <c:if test="${loggedUser != null}">
-                    <form class="form-inline">
+                    <form method="get" action="/logout" class="form-inline">
+                        <input type="submit" value="Logout1"/>
                         <p>Logged in as: ${loggedUser.username}</p>
-
-                        <form class="form-inline" method="get" action="log-out">
-                            <input type="submit" name="logout" value="Logout"/>
-                        </form>
                         <a href="/dd/user/${loggedUser.id}/desktop">Desktop</a><br>
-                            <%--<a href="/dd/logs/new">Add new log</a>--%>
                     </form>
                 </c:if>
             </nav>
