@@ -7,12 +7,12 @@ import java.util.List;
 
 public interface LogsRepository extends JpaRepository<Logs, Long> {
 
-    List<Logs> findAllByOrderByCreatedDesc();
-
+    List<Logs> findAll();
     // searching for log 8y log id
     List<Logs> findAllById(Long id);
 
     List<Logs> findAllByUserId(Long UserId);
+
 
 
 }

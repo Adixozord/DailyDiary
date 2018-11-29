@@ -17,6 +17,7 @@
     <form:input path="content" type="textarea" placeholder="Place your thoughts here"/>
     select category: <form:select path="category" items="${category}" itemLabel="name" itemValue="name"/><br>
     private <form:checkbox path="isPrivate" value="false"/>
+
     <input type="submit" value="Post!"/><br/>
 </form:form>
 </body>
