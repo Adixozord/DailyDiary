@@ -29,8 +29,12 @@
             <p class="card-text">${log.content}</p>
         </div>
         <div class="card-footer text-muted">
+            <c:if test="${log.isPrivate == true}">
+                <p>private</p>
+            </c:if>
             <p>${log.created}</p>
         </div>
+
     </div>
 </c:forEach>
 </c:if>

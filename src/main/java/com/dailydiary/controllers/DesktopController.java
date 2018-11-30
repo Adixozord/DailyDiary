@@ -28,7 +28,7 @@ public class DesktopController {
 
     @GetMapping("/{id}/desktop")
     public String logsOptions(@PathVariable Long id, Model model) {
-        List<Logs> log = logsRepository.findAllByUserId(id);
+        List<Logs> log = logsRepository.findAllByUserIdOrderByCreatedDesc(id);
         model.addAttribute("userLogs", log);
         return "user/desktop";
     }

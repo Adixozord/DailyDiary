@@ -10,8 +10,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <nav class="navbar navbar-expand-lg  bg-info shadow p-3 mb-5 rounded ">
-                <div class="col-md-4">
+            <nav class="navbar navbar-expand-lg  bg-info shadow p-3 mb-5 rounded">
+                <div class="col-md-2">
                     <c:if test="${loggedUser != null}">
                         <p>Logged in as: ${loggedUser.username}</p>
                     </c:if>
@@ -20,32 +20,37 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <form class="form-inline my-2" method="get" action="#">
                         <input class="form-control mr-sm-2" type="search" name="search" placeholder="search"
-                               aria-label="Search"><span><i class="fas fa-search"></i></span>
+                               aria-label="Search" style="width: 500px">
                     </form>
 
                 </div>
                 <c:if test="${loggedUser == null}">
                     <div class="collapse navbar-collapse text-center d-flex justify-content-end"
                          id="navbarTogglerDemo02">
-                        <form class="form-inline ">
-                            <div class="col-md-6">
-                                <i class="fas fa-user"></i>
-                                <a class="text-dark" href="signup"> Log in here!</a>
+                        <form class="form-inline">
+                            <div class="col-md-4">
+                                <a class="text-dark" href="signup"> <i class="fas fa-user fa-2x"></i><br>Log in
+                                    here!</a>
                             </div>
                             <div class="col-md-6">
-                                <i class="fas fa-user-plus"></i>
-                                <a class="text-dark" href="register"> No account yet? register!</a><br>
+
+                                <a class="text-dark" href="register"><i class="fas fa-user-plus fa-2x"></i><br> Register
+                                    here!</a><br>
                             </div>
                         </form>
                     </div>
                 </c:if>
+
                 <c:if test="${loggedUser != null}">
-                    <form style="display: block" method="get" action="/logout" class="form-inline">
-                        <i class="fas fa-user-circle"></i>
-                        <a class="text-dark" href="/dd/user/${loggedUser.id}/desktop"> Desktop</a><br>
-                        <i class="fas fa-user-times"></i>
-                        <input type="submit" value="Logout"/><br>
+                <div class="col-md-4" align="right">
+                    <a class="text-dark" href="/dd/user/${loggedUser.id}/desktop"><i class="fas fa-user-circle fa-2x"></i> Desktop</a><br>
+                </div>
+                <div class="col-md-6">
+                    <form style="display: inline" method="get" action="/logout" class="form-inline">
+                        <i class="fas fa-user-times fa-2x"></i>
+                        <input class="btn btn-light" type="submit" value="Logout"/><br>
                     </form>
+                </div>
                 </c:if>
             </nav>
         </div>
@@ -68,7 +73,7 @@
                         aria-expanded="false" aria-controls="collapseExample">
                     Show all logs
                 </button>
-                <div class="collapse" id="collapseExample">
+                <div class="collapse show" id="collapseExample">
                     <c:forEach items="${allLogs}" var="log">
                         <c:if test="${log.isPrivate != true}">
                             <div class="card text-center">
