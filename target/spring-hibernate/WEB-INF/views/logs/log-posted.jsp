@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: aix
@@ -8,7 +9,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Posted!</title>
+    <c:import url="../bootstrap.jsp"></c:import>
+
 </head>
 <body>
 <p> youve posted a log</p>

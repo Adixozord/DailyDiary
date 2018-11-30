@@ -3,21 +3,46 @@
 <html>
 <head>
     <title>Daily diary register</title>
+    <c:import url="../bootstrap.jsp"></c:import>
+
 </head>
 <body>
-<h1>Registration form</h1>
-<form:form modelAttribute="registrationFormData">
-    <br>
-   <form:input path="username" placeholder="Enter your login"/><form:errors path="username"/> <br>
-   <form:input path="email" placeholder="Enter your e-mail address" type="email"/><form:errors path="email"/> <br>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1>Registration form</h1>
+        <form:form modelAttribute="registrationFormData">
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <form:input style="width: 300px" path="username" placeholder="Enter your login"/><form:errors path="username"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <form:input style="width: 300px" path="email" placeholder="Enter your e-mail address" type="email"/><form:errors
+                        path="email"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <form:input style="width: 300px" path="password" placeholder="Enter your password" type="password"/><form:errors
+                        path="password"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <form:input style="width: 300px" path="confirmedPassword" placeholder="Re-enter your password"
+                                type="password"/><form:errors
+                        path="confirmedPassword"/>
+                </div>
+            </div>
+            <input type="submit" value="register"/>
+        </form:form><br>
+        <a href="signup">i already have an account</a>
+    </div>
+</div>
 
-   <form:input path="password" placeholder="Enter your password" type="password"/><form:errors path="password"/><br>
-    <form:input path="confirmedPassword" placeholder="Re-enter your password" type="password"/><form:errors path="confirmedPassword"/><br>
-    <!-- check if both fields contain same value-->
 
-    <input type="submit" value="register"/>
-</form:form>
-<a href="signup">i already have an account</a>
+<!-- check if both fields contain same value-->
 
 
 </body>

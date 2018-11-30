@@ -4,20 +4,17 @@
 <html>
 <head>
     <title>Daily Diary</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
+    <c:import url="bootstrap.jsp"></c:import>
 </head>
 <body>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg  bg-info shadow p-3 mb-5 rounded ">
                 <div class="col-md-4">
+                    <c:if test="${loggedUser != null}">
+                        <p>Logged in as: ${loggedUser.username}</p>
+                    </c:if>
                     <i class="fas fa-book-alt"></i>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -28,23 +25,26 @@
 
                 </div>
                 <c:if test="${loggedUser == null}">
-                    <div class="collapse navbar-collapse text-center" id="navbarTogglerDemo02">
-                        <form class="form-inline">
+                    <div class="collapse navbar-collapse text-center d-flex justify-content-end"
+                         id="navbarTogglerDemo02">
+                        <form class="form-inline ">
                             <div class="col-md-6">
-                                <i class="fas fa-user"></i><br>
-                                <a href="signup">Log in here!</a>
+                                <i class="fas fa-user"></i>
+                                <a class="text-dark" href="signup"> Log in here!</a>
                             </div>
                             <div class="col-md-6">
-                                <a href="register">No account yet? register!</a><br>
+                                <i class="fas fa-user-plus"></i>
+                                <a class="text-dark" href="register"> No account yet? register!</a><br>
                             </div>
                         </form>
                     </div>
                 </c:if>
                 <c:if test="${loggedUser != null}">
-                    <form method="get" action="/logout" class="form-inline">
-                        <input type="submit" value="Logout1"/>
-                        <p>Logged in as: ${loggedUser.username}</p>
-                        <a href="/dd/user/${loggedUser.id}/desktop">Desktop</a><br>
+                    <form style="display: block" method="get" action="/logout" class="form-inline">
+                        <i class="fas fa-user-circle"></i>
+                        <a class="text-dark" href="/dd/user/${loggedUser.id}/desktop"> Desktop</a><br>
+                        <i class="fas fa-user-times"></i>
+                        <input type="submit" value="Logout"/><br>
                     </form>
                 </c:if>
             </nav>
@@ -54,30 +54,40 @@
         <div class="row">
             <div class="col-md-3">
                 <c:if test="${loggedUser != null}">
-                    <h3> Add new log </h3>
-                    <c:import url="logs/logForm.jsp"></c:import>
+                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseAdd"
+                            aria-expanded="false" aria-controls="collapseAdd">
+                        Add new log
+                    </button>
+                    <div class="collapse" id="collapseAdd">
+                        <c:import url="logs/logForm.jsp"></c:import>
+                    </div>
                 </c:if>
             </div>
             <div class="col-md-9">
-                <h3>All logs</h3>
-                <c:forEach items="${allLogs}" var="log">
-                    <c:if test="${log.isPrivate != true}">
-                        <div class="card text-center">
-                            <div class="card-header">
-                                <p>${log.user.username}</p>
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
+                        aria-expanded="false" aria-controls="collapseExample">
+                    Show all logs
+                </button>
+                <div class="collapse" id="collapseExample">
+                    <c:forEach items="${allLogs}" var="log">
+                        <c:if test="${log.isPrivate != true}">
+                            <div class="card text-center">
+                                <div style="text-align: left" class="card-header">
+                                    <p>Author : ${log.user.username}</p>
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <td>
+                                            ${log.category}</h5>
+                                    <p class="card-text">${log.content}</p>
+                                </div>
+                                <div class="card-footer text-muted">
+                                    <p>${log.created}</p>
+                                </div>
                             </div>
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <td>
-                                        ${log.category}</h5>
-                                <p class="card-text">${log.content}</p>
-                            </div>
-                            <div class="card-footer text-muted">
-                                <p>${log.created}</p>
-                            </div>
-                        </div>
-                    </c:if>
-                </c:forEach>
+                        </c:if>
+                    </c:forEach>
+                </div>
             </div>
 
         </div>

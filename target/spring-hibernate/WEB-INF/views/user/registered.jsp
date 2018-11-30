@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: aix
@@ -9,9 +10,10 @@
 <html>
 <head>
     <title>Success!</title>
+    <c:import url="../bootstrap.jsp"></c:import>
 </head>
 <body>
-<h3>successfuly registered with email adress : ${registrationFormData.email}</h3>
-<a href="/dd">Go back to homepage</a>
+<h3 class="text-dark">Successfuly registered with email adress : ${registrationFormData.email}</h3>
+<i class="fas fa-arrow-left"></i><a href="/dd">Go back to homepage</a>
 </body>
 </html>

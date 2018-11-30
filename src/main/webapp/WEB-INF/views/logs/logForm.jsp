@@ -11,7 +11,9 @@
 
 <form:form modelAttribute="newLog" method="post" action="dd/logs/new">
     <form:textarea style="height:300px; width:360px" path="content"/><br>
-    select category: <form:select path="category" items="${category}" itemLabel="name" itemValue="name"/><br>
-    private <form:checkbox path="isPrivate" value="false"/><br>
+    Category <form:select class="form-control" path="category" items="${category}" itemLabel="name" itemValue="name"/><br>
+
+    Private log <form:checkbox path="isPrivate" value="false"/> <br>
+
     <input type="submit" value="Post!"/><br/>
 </form:form>

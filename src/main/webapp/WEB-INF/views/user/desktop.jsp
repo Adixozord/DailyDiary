@@ -11,23 +11,34 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <c:import url="../bootstrap.jsp"></c:import>
+
     <title>User desktop</title>
+
 </head>
 <body>
-<h1> my logs</h1>
+<h1 class="text-dark" align="center">User desktop</h1>
+<c:if test="${userLogs.size() > 0}">
+<h1>My logs</h1>
 <c:forEach items="${userLogs}" var="log">
-    <tr>
-        <br>
-        <td>Category: ${log.category}</td>
-        <br>
-        <td>${log.content}</td>
-        <br>
-        <div>
-           ${log.created}
+    <div class="card text-center">
+        <div class="card-body">
+            <h5 class="card-title">
+                <td>
+                    ${log.category}</h5>
+            <p class="card-text">${log.content}</p>
         </div>
-    </tr>
+        <div class="card-footer text-muted">
+            <p>${log.created}</p>
+        </div>
+    </div>
 </c:forEach>
-<h1> stats </h1>
-<a href="/dd">homepage</a>
+</c:if>
+<c:if test="${userLogs.size() == 0}">
+    <p>No logs yet</p>
+</c:if>
+
+
+<a class="text-dark" href="/dd"><i class="fas fa-arrow-left"></i>homepage</a>
 </body>
 </html>
