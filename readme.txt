@@ -1,5 +1,14 @@
 Daily Diary project.
 
+Technologies used in mvc project: 
+   -Java 8
+   -Spring
+   -Hibernate
+   -Apache Tomcat
+   -MySQL
+   -CSS
+   -JSTL, HTML, JSP
+
 Main assumptions:
 > possibilities for users:
    - creating and logging into account
